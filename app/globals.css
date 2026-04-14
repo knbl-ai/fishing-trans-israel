@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+/* FbPractica Font Family */
+@font-face {
+  font-family: 'FbPractica';
+  src: url('/FbPractica-Light.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'FbPractica';
+  src: url('/FbPractica-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'FbPractica';
+  src: url('/FbPractica-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'FbPractica';
+  src: url('/FbPractica-Black.otf') format('opentype');
+  font-weight: 900;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +48,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Play Button Animations */
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutButton {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.button-press {
+  animation: buttonPress 0.3s ease-out;
+}
+
+.button-fade-out {
+  animation: fadeOutButton 0.5s ease-out forwards;
 }
