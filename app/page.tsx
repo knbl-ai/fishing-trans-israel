@@ -2,6 +2,22 @@
 
 import { useRef, useState, useEffect } from 'react';
 
+const arrowAnimation = `
+  @keyframes arrowFloat {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(8px);
+    }
+  }
+
+  .arrow-animate {
+    animation: arrowFloat 1.5s ease-in-out infinite;
+    display: inline-block;
+  }
+`;
+
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -104,6 +120,7 @@ export default function Home() {
 
   return (
     <main style={{ background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 40%, #0052cc 100%)' }} className="min-h-screen flex flex-col relative overflow-hidden">
+      <style>{arrowAnimation}</style>
       {/* Background Image Overlay - Very Transparent */}
       <img
         src="/background-image.jpg"
@@ -131,7 +148,7 @@ export default function Home() {
 
         {/* Left Side - Video (Half Screen Desktop) */}
         <div className="w-full lg:w-1/2 px-4 lg:px-8 py-4 lg:py-8 flex items-start justify-center">
-          <div className="w-full flex flex-col justify-start" style={{ marginLeft: '40px', marginTop: '5px' }}>
+          <div className="w-full flex flex-col justify-start" style={{ marginLeft: '40px', marginTop: '40px' }}>
             <div
               className="relative w-full bg-black shadow-lg overflow-hidden flex items-center justify-center group cursor-pointer"
               style={{ paddingBottom: '56.25%' }}
@@ -160,36 +177,36 @@ export default function Home() {
                 onMouseEnter={handleVideoMouseEnter}
                 onMouseLeave={handleVideoMouseLeave}
               >
-              {/* Progress Bar */}
-              <div
-                className="w-full h-1 bg-gray-700 rounded cursor-pointer transition-all duration-200 group"
-                onClick={handleProgressClick}
-              >
+                {/* Progress Bar */}
                 <div
-                  className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded transition-all duration-100"
-                  style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                />
-              </div>
+                  className="w-full h-1 bg-gray-700 rounded cursor-pointer transition-all duration-200 group"
+                  onClick={handleProgressClick}
+                >
+                  <div
+                    className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded transition-all duration-100"
+                    style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                  />
+                </div>
 
-              {/* Controls */}
-              <div className="flex items-center justify-between text-white text-sm">
-                <div className="flex items-center gap-3">
-                  {/* Play/Pause Button */}
-                  <button
-                    onClick={handlePlayClick}
-                    className="hover:opacity-80 transition-opacity p-1"
-                    title={isPlaying ? 'Pause' : 'Play'}
-                  >
-                    <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
-                  </button>
+                {/* Controls */}
+                <div className="flex items-center justify-between text-white text-sm">
+                  <div className="flex items-center gap-3">
+                    {/* Play/Pause Button */}
+                    <button
+                      onClick={handlePlayClick}
+                      className="hover:opacity-80 transition-opacity p-1"
+                      title={isPlaying ? 'Pause' : 'Play'}
+                    >
+                      <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
+                    </button>
 
-                  {/* Time Display */}
-                  <span className="font-mono" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-                    {formatTime(currentTime)} / {formatTime(duration)}
-                  </span>
+                    {/* Time Display */}
+                    <span className="font-mono" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
 
             {/* Decorative Line Element */}
@@ -203,135 +220,158 @@ export default function Home() {
         </div>
 
         {/* Right Side - Text Content (Half Screen Desktop) */}
-        <div className="w-full lg:w-1/2 px-4 lg:px-8 py-4 lg:py-8 flex flex-col items-center justify-start text-white" dir="rtl" style={{ marginTop: '20px' }}>
+        <div className="w-full lg:w-1/2 px-4 lg:px-8 pt-0 pb-8 flex flex-col items-center justify-start text-white" dir="rtl" style={{ marginTop: '-60px' }}>
           <div className="w-full max-w-xl">
             {/* Headline */}
-            <div className="text-right mb-8" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-3" style={{
-                background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>
-                נסעתם בכביש 6 וקיבלתם שתי חשבוניות?
-              </h1>
-              <div className="text-3xl md:text-4xl font-bold inline-block" style={{
-                background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                color: 'white',
-                padding: '2px 16px'
-              }}>
-                אל דאגה, זו לא טעות.
+            <div style={{ fontFamily: 'FbPractica, Arial, sans-serif', marginBottom: '24px', textAlign: 'right' }}>
+              <p className="text-xl md:text-2xl text-white mb-2 font-normal">
+                נוסעים בכביש 6?
+              </p>
+              <div>
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight inline" style={{
+                  background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>עושים סדר </h1>
+                <span className="text-5xl md:text-6xl font-bold" style={{
+                  background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                  color: 'white',
+                  padding: '0px 20px',
+                  lineHeight: '1',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  position: 'relative',
+                  top: '-4px'
+                }}>בחיובים</span>
               </div>
             </div>
-
             {/* Body Text */}
-            <p className="text-lg md:text-xl leading-relaxed text-right text-gray-200 mb-5" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-              כביש 6 מחולק ל<span className="font-bold">שני מקטעים</span> המופעלים על ידי <span className="font-bold">זכיינים שונים</span>:
+            <p className="text-base md:text-lg leading-relaxed text-right text-white mb-5" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
+              כביש 6 מופעל על ידי <span className="font-bold">שני זכיינים שונים</span>.<br />
+              נסעתם מצפון לדרום או להיפך ועברתם בשני המקטעים -<br />
+              צפו לשני חיובים שונים.
             </p>
 
-            {/* Buttons Section */}
-            <div className="flex gap-4 justify-end w-full mb-6 flex-row-reverse">
-              {/* Button 1 - Derech Eretz */}
-              <button
-                className="px-4 py-2 border-2 border-white text-white transition text-center"
-                style={{ fontFamily: 'FbPractica, Arial, sans-serif', width: '220px' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#FFD700';
-                  e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.6), inset 0 0 15px rgba(255, 165, 0, 0.3)';
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
+            {/* Buttons and Maps Grid */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '70%', direction: 'ltr', marginLeft: 'auto' }}>
+              {/* Row 1 - Map and Button as One Unit */}
+              <div
+                style={{ display: 'flex', gap: '0px', border: '2px solid white', overflow: 'hidden', direction: 'ltr', transition: 'border-color 0.3s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderImage = 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%) 1'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderImage = 'none'; e.currentTarget.style.borderColor = 'white'; }}
               >
-                <div className="font-bold text-base">דרך ארץ</div>
-                <div className="text-sm">בין מחלף שורק לעין תות</div>
-              </button>
+                <div className="overflow-hidden cursor-pointer" style={{ width: '120px' }}>
+                  <img
+                    src="/map-6-hotze.jpg"
+                    alt="6 חוצה צפון - יוקנעם לסומך"
+                    className="w-full h-auto object-cover"
+                    style={{ transition: 'transform 0.3s ease-in-out' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center" style={{ backgroundColor: '#2e6373', padding: '10px', flex: 1 }}>
+                <a
+                  href="https://6cn.co.il/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white transition text-center w-full"
+                  style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                >
+                  <div style={{ fontSize: '16px', marginBottom: '-6px' }}>קטע צפוני</div>
+                  <div className="font-bold" style={{
+                    fontSize: '40px',
+                    marginBottom: '-6px',
+                    background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>6 חוצה צפון</div>
+                  <div style={{ fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '-6px' }}>
+                    <span>יוקנעם</span>
+                    <span className="arrow-animate" style={{ fontSize: '16px' }}>↔</span>
+                    <span>סומך</span>
+                  </div>
+                  <div style={{ fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '10px' }}>
+                    <i className="fas fa-phone" style={{ fontSize: '13px' }}></i>
+                    <span>*6102</span>
+                  </div>
+                </a>
+                </div>
+              </div>
 
-              {/* Button 2 - Chutzot Tzafon */}
-              <button
-                className="px-4 py-2 border-2 border-white text-white transition text-center"
-                style={{ fontFamily: 'FbPractica, Arial, sans-serif', width: '220px' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#FFD700';
-                  e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.6), inset 0 0 15px rgba(255, 165, 0, 0.3)';
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'white';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
+              {/* Row 2 - Map and Button as One Unit */}
+              <div
+                style={{ display: 'flex', gap: '0px', border: '2px solid white', overflow: 'hidden', direction: 'ltr', transition: 'border-color 0.3s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderImage = 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%) 1'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderImage = 'none'; e.currentTarget.style.borderColor = 'white'; }}
               >
-                <div className="font-bold text-base">שש חוצה צפון</div>
-                <div className="text-sm">בין יקנעם לתל קשיש</div>
-              </button>
+                <div className="overflow-hidden cursor-pointer" style={{ width: '120px' }}>
+                  <img
+                    src="/map-derech-eretz.jpg"
+                    alt="דרך ארץ - שורק לעין תות"
+                    className="w-full h-auto object-cover"
+                    style={{ transition: 'transform 0.3s ease-in-out' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center" style={{ backgroundColor: '#006afd', padding: '10px', flex: 1 }}>
+                  <a
+                    href="https://www.kvish6.co.il/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white transition text-center w-full"
+                    style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    <div style={{ fontSize: '16px', marginBottom: '-6px' }}>קטע מרכזי</div>
+                    <div className="font-bold" style={{
+                      fontSize: '40px',
+                      marginBottom: '-6px',
+                      background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}>דרך ארץ</div>
+                    <div style={{ fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '-6px' }}>
+                      <span>שורק</span>
+                      <span className="arrow-animate" style={{ fontSize: '16px' }}>↔</span>
+                      <span>עין תות</span>
+                    </div>
+                    <div style={{ fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '10px' }}>
+                      <i className="fas fa-phone" style={{ fontSize: '13px' }}></i>
+                      <span>*6116</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
-
-            {/* Description Text */}
-            <p className="text-base md:text-lg leading-relaxed text-right text-gray-200" style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-              בלחיצה על כל אחד מהם תוכלו לברר חוב, לשלם, ולעשות מנוי ש<span className="font-bold">יחסוך לכם זמן וכסף</span>.
-            </p>
 
           </div>
         </div>
       </section>
 
-      {/* Footer - Contact Info */}
-      <footer className="w-full px-8 py-2 text-white relative z-10" dir="rtl" style={{ backgroundColor: '#00103a' }}>
-        <div className="max-w-6xl mx-auto flex items-center justify-center gap-16">
-
-          {/* Contact Section 1 */}
-          <div className="flex items-center gap-6 text-right">
-            <div style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-              <div className="text-xs font-normal flex items-center gap-3 whitespace-nowrap">
-                <span style={{
-                  background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>שש חוצה צפון</span>
-                <span>-</span>
-                <a href="tel:03-9533929" className="text-white hover:text-gray-200 transition">03-9533929</a>
-                <a href="https://6cn.co.il/" className="text-white hover:text-gray-200 transition" target="_blank" rel="noopener noreferrer">6cn.co.il</a>
-              </div>
-            </div>
-            <div className="flex gap-2">
-              <a href="https://www.facebook.com/share/1CEPZUxvXF/?mibextid=wwXIfr" className="text-white hover:scale-110 transition" title="Facebook" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-f text-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          {/* Separator */}
-          <div className="w-px h-6 bg-gray-500 opacity-30"></div>
-
-          {/* Contact Section 2 */}
-          <div className="flex items-center gap-3 text-right">
-            <div style={{ fontFamily: 'FbPractica, Arial, sans-serif' }}>
-              <div className="text-xs font-normal flex items-center gap-3 whitespace-nowrap">
-                <span style={{
-                  background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>דרך ארץ</span>
-                <span>-</span>
-                <a href="tel:xx-xxxxxxx" className="text-white hover:text-gray-200 transition">xx-xxxxxxx</a>
-                <a href="https://derech-eretz.com/" className="text-white hover:text-gray-200 transition" target="_blank" rel="noopener noreferrer">derech-eretz.com</a>
-              </div>
-            </div>
-            <div className="flex gap-2">
-              <a href="#" className="text-white hover:scale-110 transition" title="Facebook">
-                <i className="fab fa-facebook-f text-lg"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </footer>
     </main>
   );
 }
