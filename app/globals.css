@@ -79,3 +79,42 @@ body {
 .button-fade-out {
   animation: fadeOutButton 0.5s ease-out forwards;
 }
+
+/* ── MOBILE ONLY ── */
+@media (max-width: 1023px) {
+  .m-bg-circle {
+    top: -5% !important;
+    left: -80% !important;
+    width: 160% !important;
+    height: 40% !important;
+  }
+  .m-deco-line { width: 200px !important; margin-right: -60px !important; margin-top: -20px !important; }
+  .m-video-col {
+    padding: 16px !important;
+    justify-content: center !important;
+  }
+  .m-video-wrapper {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: 65vw !important;
+  }
+  .m-right-col {
+    margin-top: 0 !important;
+    padding: 0 16px 24px !important;
+    align-items: stretch !important;
+  }
+  .m-content-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .m-cards-row {
+    flex-direction: column !important;
+  }
+  .m-card-wrapper {
+    flex: none !important;
+    width: 100% !important;
+  }
+  .m-card-box {
+    height: 120px !important;
+  }
+}
