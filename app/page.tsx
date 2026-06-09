@@ -508,22 +508,22 @@ export default function Home() {
               {/* Card 1 - חוצה צפון 6 */}
               <div className="m-card-wrapper" style={{ display: 'flex', flex: 1, alignItems: 'stretch' }}>
                 <div className="m-card-box"
-                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', height: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
+                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', minHeight: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
                 >
                   {/* Map */}
-                  <div ref={map1Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer', backgroundColor: '#ffffff' }}>
+                  <div ref={map1Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer', backgroundColor: '#ffffff', minHeight: '100%' }}>
                     <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_6_HOTZE.jpg)', backgroundSize: 'cover', backgroundPosition: 'calc(50% + 40px) calc(50% - 60px)', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
                   </div>
                   {/* Content */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-start', padding: '16px 48px 16px 20px', fontFamily: 'FbPractica, Arial, sans-serif', gap: '6px', textAlign: 'right' }}>
-                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(12px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block', minHeight: '24px' }}>קטעים צפוניים</div>
-                    <div style={{ fontSize: 'clamp(22px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1', whiteSpace: 'nowrap', minHeight: 'clamp(26px, 2.7vw, 42px)', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '6px' }}><span>חוצה צפון</span><span>6</span></div>
-                    <div style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#00103a', minHeight: '20px' }}>יוקנעם ↔ סומך</div>
-                    <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#2e6373', textDecoration: 'underline', fontWeight: '500', minHeight: '20px', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                    <div style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-evenly', padding: 'clamp(10px, 1.2vw, 16px) clamp(12px, 3vw, 48px) clamp(10px, 1.2vw, 16px) clamp(8px, 1vw, 20px)', fontFamily: 'FbPractica, Arial, sans-serif', gap: 'clamp(3px, 0.5vw, 6px)', textAlign: 'right' }}>
+                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(11px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block' }}>קטעים צפוניים</div>
+                    <div style={{ fontSize: 'clamp(16px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '6px' }}><span>חוצה צפון</span><span>6</span></div>
+                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a' }}>יוקנעם ↔ סומך</div>
+                    <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#2e6373', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
+                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
                       <i className="fas fa-phone" style={{ fontSize: 'clamp(9px, 0.8vw, 11px)' }}></i><span>*6102</span>
                     </div>
-                    <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: 'clamp(32px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain', marginTop: '4px' }} />
+                    <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: 'clamp(28px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain' }} />
                   </div>
                 </div>
               </div>
@@ -531,22 +531,22 @@ export default function Home() {
               {/* Card 2 - דרך ארץ */}
               <div className="m-card-wrapper" style={{ display: 'flex', flex: 1, alignItems: 'stretch' }}>
                 <div className="m-card-box"
-                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', height: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
+                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', minHeight: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
                 >
                   {/* Map */}
-                  <div ref={map2Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer' }}>
+                  <div ref={map2Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer', minHeight: '100%' }}>
                     <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_DERECH_ERETZ.jpg)', backgroundSize: '160%', backgroundPosition: 'calc(50% + 60px) calc(42% + 7px)', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
                   </div>
                   {/* Content */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-start', padding: '16px 48px 16px 20px', fontFamily: 'FbPractica, Arial, sans-serif', gap: '6px', textAlign: 'right' }}>
-                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(12px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block', minHeight: '24px' }}>קטע מרכזי</div>
-                    <div style={{ fontSize: 'clamp(22px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1', minHeight: 'clamp(26px, 2.7vw, 42px)' }}>דרך ארץ</div>
-                    <div style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#00103a', minHeight: '20px' }}>שורק ↔ עין תות</div>
-                    <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#006aff', textDecoration: 'underline', fontWeight: '500', minHeight: '20px', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                    <div style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-evenly', padding: 'clamp(10px, 1.2vw, 16px) clamp(12px, 3vw, 48px) clamp(10px, 1.2vw, 16px) clamp(8px, 1vw, 20px)', fontFamily: 'FbPractica, Arial, sans-serif', gap: 'clamp(3px, 0.5vw, 6px)', textAlign: 'right' }}>
+                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(11px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block' }}>קטע מרכזי</div>
+                    <div style={{ fontSize: 'clamp(16px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1' }}>דרך ארץ</div>
+                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a' }}>שורק ↔ עין תות</div>
+                    <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#006aff', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
+                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
                       <i className="fas fa-phone" style={{ fontSize: 'clamp(9px, 0.8vw, 11px)' }}></i><span>*6116</span>
                     </div>
-                    <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: 'clamp(32px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain', marginTop: '4px', marginTop: '4px' }} />
+                    <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: 'clamp(28px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain' }} />
                   </div>
                 </div>
               </div>
