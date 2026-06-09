@@ -342,10 +342,10 @@ export default function Home() {
 
         {/* Left Side - Video (Half Screen Desktop) */}
         <div className="m-video-col w-full lg:w-2/5 px-8 lg:px-14 py-4 lg:py-8 flex items-center justify-center">
-          <div className="m-video-wrapper flex flex-col justify-start" style={{ marginLeft: '75px', marginTop: '-60px', width: 'clamp(195px, 19.5vw, 315px)', flexShrink: 0 }}>
+          <div className="m-video-wrapper flex flex-col justify-start" style={{ marginLeft: '75px', marginTop: '-60px', height: '70vh', width: 'calc(70vh * 9 / 16)', flexShrink: 0 }}>
             <div
               className="relative w-full bg-black shadow-lg overflow-hidden flex items-center justify-center group cursor-pointer"
-              style={{ paddingBottom: '177.78%', borderRadius: '12px' }}
+              style={{ height: '70vh', borderRadius: '12px' }}
               onClick={handlePlayClick}
               onMouseEnter={handleVideoMouseEnter}
               onMouseLeave={handleVideoMouseLeave}
