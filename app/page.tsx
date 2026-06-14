@@ -307,48 +307,49 @@ export default function Home() {
             <i className="fas fa-angle-double-down" style={{ color: '#00103a', marginRight: '6px' }}></i>
           </p>
 
-          {/* Cards - vertical layout */}
+          {/* Cards - mobile, map on top + desktop-style content panel below */}
           <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', boxSizing: 'border-box' }}>
+
             {/* Card - דרך ארץ */}
             <div style={{ borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', width: '100%', boxSizing: 'border-box' }}>
-              {/* Map - full width */}
-              <div style={{ width: '100%', height: '180px', position: 'relative' }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_DERECH_ERETZ.jpg)', backgroundSize: '110%', backgroundPosition: 'center 30%', backgroundRepeat: 'no-repeat', backgroundColor: '#fff' }} />
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_DERECH_ERETZ.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundColor: '#fff' }} />
               </div>
-              {/* Content row: logo left, info right */}
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', direction: 'rtl' }}>
-                <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: '32px', maxWidth: '80px', objectFit: 'contain', flexShrink: 0 }} />
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '2px 10px', fontSize: '12px', fontWeight: '500' }}>קטע מרכזי</div>
-                    <div style={{ fontSize: '22px', fontWeight: '900', color: '#00103a', lineHeight: '1' }}>דרך ארץ</div>
-                  </div>
-                  <div style={{ fontSize: '13px', color: '#00103a' }}>שורק ↔ עין תות</div>
-                  <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: '13px', color: '#006aff', textDecoration: 'underline', fontWeight: '500' }}>לרישום כמנוי באתר הזכיין</a>
-                  <a href="tel:*6116" style={{ fontSize: '13px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}><i className="fas fa-phone" style={{ fontSize: '10px' }}></i><span>*6116</span></a>
+              <div style={{ padding: '16px 20px 14px', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', direction: 'rtl', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: '13px', fontWeight: '500', display: 'inline-block', alignSelf: 'flex-start' }}>קטע מרכזי</div>
+                <div style={{ fontSize: '34px', fontWeight: '900', color: '#00103a', lineHeight: '1.1' }}>דרך ארץ</div>
+                <div style={{ fontSize: '15px', color: '#00103a' }}>שורק ↔ עין תות</div>
+                <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: '15px', color: '#006aff', textDecoration: 'underline', fontWeight: '500' }}>לרישום כמנוי באתר הזכיין</a>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '4px' }}>
+                  <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: '36px', maxWidth: '90px', objectFit: 'contain' }} />
+                  <a href="tel:*6116" style={{ fontSize: '15px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                    <i className="fas fa-phone" style={{ fontSize: '12px' }}></i>
+                    <span>*6116</span>
+                  </a>
                 </div>
               </div>
             </div>
+
             {/* Card - חוצה צפון 6 */}
             <div style={{ borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', width: '100%', boxSizing: 'border-box' }}>
-              {/* Map - full width */}
-              <div style={{ width: '100%', height: '180px', position: 'relative' }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_6_HOTZE.jpg)', backgroundSize: '110%', backgroundPosition: 'center 30%', backgroundRepeat: 'no-repeat', backgroundColor: '#fff' }} />
+              <div style={{ width: '100%', height: '200px', position: 'relative' }}>
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_6_HOTZE.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundColor: '#fff' }} />
               </div>
-              {/* Content row: logo left, info right */}
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', direction: 'rtl' }}>
-                <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: '32px', maxWidth: '80px', objectFit: 'contain', flexShrink: 0 }} />
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ background: '#E0F0F4', color: '#2e6373', borderRadius: '20px', padding: '2px 10px', fontSize: '12px', fontWeight: '500' }}>קטעים צפוניים</div>
-                    <div style={{ fontSize: '22px', fontWeight: '900', color: '#2e6373', lineHeight: '1' }}>חוצה צפון 6</div>
-                  </div>
-                  <div style={{ fontSize: '13px', color: '#00103a' }}>יוקנעם ↔ סומך</div>
-                  <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: '13px', color: '#2e6373', textDecoration: 'underline', fontWeight: '500' }}>לרישום כמנוי באתר הזכיין</a>
-                  <a href="tel:*6102" style={{ fontSize: '13px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}><i className="fas fa-phone" style={{ fontSize: '10px' }}></i><span>*6102</span></a>
+              <div style={{ padding: '16px 20px 14px', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', direction: 'rtl', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ background: '#E0F0F4', color: '#2e6373', borderRadius: '20px', padding: '3px 12px', fontSize: '13px', fontWeight: '500', display: 'inline-block', alignSelf: 'flex-start' }}>קטעים צפוניים</div>
+                <div style={{ fontSize: '34px', fontWeight: '900', color: '#2e6373', lineHeight: '1.1' }}>חוצה צפון 6</div>
+                <div style={{ fontSize: '15px', color: '#00103a' }}>יוקנעם ↔ סומך</div>
+                <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: '15px', color: '#2e6373', textDecoration: 'underline', fontWeight: '500' }}>לרישום כמנוי באתר הזכיין</a>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '4px' }}>
+                  <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: '36px', maxWidth: '90px', objectFit: 'contain' }} />
+                  <a href="tel:*6102" style={{ fontSize: '15px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                    <i className="fas fa-phone" style={{ fontSize: '12px' }}></i>
+                    <span>*6102</span>
+                  </a>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
       )}
