@@ -196,26 +196,28 @@ export default function Home() {
   }, []);
 
   return (
-    <main style={{ background: '#f0f4f8' }} className="min-h-screen flex flex-col relative overflow-hidden">
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <main style={{ background: '#f0f4f8' }} className="flex-1 flex flex-col relative overflow-hidden">
       <style>{arrowAnimation}</style>
-      {/* Large dark blue circle — bleeds off left/top/bottom, clean round right edge */}
-      <div style={{
-        position: 'absolute',
-        top: isMobile ? '-24%' : '-45%',
-        left: isMobile ? '-50%' : 'calc(-108% + 50px)',
-        width: isMobile ? '120%' : '148%',
-        height: isMobile ? '30%' : '185%',
-        background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 40%, #0052cc 100%)',
-        borderRadius: '50%',
-        zIndex: 0,
-        boxShadow: '0 0 80px rgba(0,82,204,0.25)',
-      }} />
+      {/* Navy ribbon + tapered blue stripe */}
+      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }} preserveAspectRatio="none" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFD700" />
+            <stop offset="100%" stopColor="#FFA500" />
+          </linearGradient>
+        </defs>
+        {/* Navy triangle */}
+        <path d={isMobile ? 'M 0 0 L 65 0 L 0 78 Z' : 'M 0 0 L 52 0 L 0 72 Z'} fill="#001a4d" />
+        {/* Tapered gold stripe */}
+        <path d={isMobile ? 'M 65 0 L 72 0 L 0 78 Z' : 'M 52 0 L 59 0 L 0 72 Z'} fill="url(#goldGrad)" />
+      </svg>
       {/* Background image overlay */}
       <img
-        src="/background-image.jpg"
+        src="/Evlaim_0359_upd2.jpg"
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.04, zIndex: 1 }}
+        style={{ opacity: 0.10, zIndex: 1 }}
       />
       {/* Header with Logo */}
       <header className="w-full px-8 py-6 flex items-center justify-between relative z-10" style={{ marginLeft: isMobile ? '0' : '40px' }}>
@@ -241,25 +243,25 @@ export default function Home() {
 
           {/* Headline */}
           <div style={{ padding: '20px 20px 0', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', marginBottom: '20px' }}>
-            <p style={{ color: '#00103a', fontSize: '1.3rem', marginBottom: '0px' }}>נוסעים בכביש 6?</p>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', gap: '8px', marginTop: '-6px' }}>
-              <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>עושים סדר</span>
-              <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#00103a', position: 'relative', display: 'inline-block' }}>
-                בחיובים
-                <div style={{ position: 'absolute', bottom: '-4px', left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', borderRadius: '5px' }} />
-              </span>
+            <p style={{ color: '#00103a', fontSize: '1.3rem', marginBottom: '0px' }}>קיבלתם הודעה על חוב בכביש אגרה?</p>
+            <div style={{ display: 'inline-block', marginTop: '-6px' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', gap: '8px' }}>
+                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#00103a' }}>רגע, אולי זה</span>
+                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#f37121',  }}>פישינג!</span>
+              </div>
+              <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
             </div>
           </div>
 
           {/* Info Text */}
           <div style={{ padding: '0 20px 24px', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: '1.1rem', color: '#374151', textAlign: 'right', lineHeight: '1.6' }}>
-            אנו בחוצה ישראל&nbsp;–&nbsp;הרשות הממונה על זכייני כביש 6&nbsp;–&nbsp;פועלים שחוויית הנסיעה, האיכות והשירות עבור משתמשי הדרך יעמדו בסטנדרט הגבוה שעליו אנו מקפידים תמיד, ולכן חשוב לנו לעשות לכם סדר: איך משלמים, למי ואפילו איך תחסכו כסף?<br />
-            כביש 6 מחולק למספר קטעים המנוהלים על ידי שני זכיינים שונים, כאשר הנסיעה בהם כרוכה בתשלום אגרה.<br />
-            חברת &quot;<a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer" style={{ color: '#006aff', fontWeight: '700', textDecoration: 'underline' }}>דרך ארץ</a>&quot; (הקטע המרכזי): ממחלף שורק ועד מחלף עין תות.<br />
-            חברת &quot;<a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer" style={{ color: '#2e6373', fontWeight: '700', textDecoration: 'underline' }}>6 חוצה צפון</a>&quot; (הקטעים הצפוניים): ממחלף יוקנעם ועד מחלף סומך.<br />
-            במידה וביצעתם נסיעה לאורך שני הקטעים, תשלום האגרה מתבצע מול כל זכיין בנפרד.<br />
-            <strong>הטיפ שלנו:</strong> לשם היעילות וכן להוזלת אגרת הנסיעה, אנו ממליצים להסדיר מראש מנוי (ללא עלות) אצל כל אחד מהזכיינים.<br />
-            אפשרות נוספת הינה היעזרות בשירותי אפליקציות תשלום שבאמצעותן ניתן להרשם לכלל כבישי האגרה - כיום מציעים הזכיינים אפשרות לתשלום באפליקציות <strong>פנגו וסלופארק</strong>.
+            <strong>מה זה פישינג?</strong><br />
+            פישינג הוא למעשה ניסיון הונאה שבו גורמים עוינים מתחזים לגוף מוכר במטרה לגנוב פרטים אישיים ו/או לבצע פעולה זדונית.<br />
+            כך לדוגמא, גורמים המתחזים למפעילי כבישי אגרה מבצעים פניות באופן יזום באמצעים שונים כגון הודעות SMS ודוא&quot;ל הדורשות מהנמען לשלם חוב או למסור פרטים אישיים.<br />
+            <strong>הטיפ שלנו:</strong><br />
+            הימנעו מלחיצה על קישורים חשודים או ממסירת פרטים בעקבות מסרונים, הודעות דוא&quot;ל או שיחות טלפוניות<br />שאינכם בטוחים במקורם.<br />
+            במקרה של ספק, מומלץ לאמת את תוכן הפניה ישירות מול מפעיל הכביש הרלוונטי.<br />
+            לנוחיותכם, מצורפים להלן קישורים לאתרים הרשמיים של מפעילי כבישי האגרה:
           </div>
 
           {/* Video */}
@@ -300,59 +302,73 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CTA line */}
-          <p style={{ textAlign: 'center', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: '1rem', fontWeight: '600', color: '#374151', padding: '0 16px 20px' }}>
-            <i className="fas fa-angle-double-down" style={{ color: '#00103a', marginLeft: '6px' }}></i>
-            לחצו על הזכיין מטה לרישום מהיר וחינמי:
-            <i className="fas fa-angle-double-down" style={{ color: '#00103a', marginRight: '6px' }}></i>
-          </p>
 
           {/* Cards - exact desktop card design, stacked vertically */}
-          <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', boxSizing: 'border-box' }}>
+          <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box', direction: 'rtl' }}>
 
-            {/* Card - דרך ארץ (same structure as desktop) */}
-            <div style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', height: '300px', width: '100%', direction: 'ltr' }}>
-              {/* Map */}
-              <div style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', backgroundColor: '#ffffff' }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_DERECH_ERETZ.jpg)', backgroundSize: 'auto 108%', backgroundPosition: 'left top', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
+            {/* דרך ארץ */}
+            <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="דרך ארץ" style={{ height: '60px', objectFit: 'contain' }} />
               </div>
-              {/* Content */}
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center', padding: '10px 16px 10px 8px', fontFamily: 'FbPractica, Arial, sans-serif', gap: '8px', textAlign: 'right' }}>
-                <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: '12px', fontWeight: '500', display: 'inline-block' }}>קטע מרכזי</div>
-                <div style={{ fontSize: '24px', fontWeight: '900', color: '#00103a', lineHeight: '1.1' }}>דרך ארץ</div>
-                <div style={{ fontSize: '13px', color: '#00103a' }}>שורק ↔ עין תות</div>
-                <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: '13px', color: '#006aff', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                <div style={{ fontSize: '13px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <i className="fas fa-phone" style={{ fontSize: '10px' }}></i><span>*6116</span>
-                </div>
-                <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: '30px', maxWidth: '80px', objectFit: 'contain' }} />
-              </div>
-            </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>דרך ארץ (כביש 6)</div>
+            </a>
 
-            {/* Card - חוצה צפון 6 (same structure as desktop) */}
-            <div style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', height: '200px', width: '100%', direction: 'ltr' }}>
-              {/* Map */}
-              <div style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', backgroundColor: '#ffffff' }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_6_HOTZE.jpg)', backgroundSize: 'cover', backgroundPosition: 'calc(50% + 40px) calc(50% - 60px)', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
+            {/* חוצה צפון 6 */}
+            <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="חוצה צפון 6" style={{ height: '60px', objectFit: 'contain' }} />
               </div>
-              {/* Content */}
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-evenly', padding: '10px 16px 10px 8px', fontFamily: 'FbPractica, Arial, sans-serif', gap: '2px', textAlign: 'right' }}>
-                <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: '12px', fontWeight: '500', display: 'inline-block' }}>קטעים צפוניים</div>
-                <div style={{ fontSize: '24px', fontWeight: '900', color: '#00103a', lineHeight: '1.1', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '6px' }}><span>חוצה צפון</span><span>6</span></div>
-                <div style={{ fontSize: '13px', color: '#00103a' }}>יוקנעם ↔ סומך</div>
-                <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: '13px', color: '#2e6373', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                <div style={{ fontSize: '13px', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <i className="fas fa-phone" style={{ fontSize: '10px' }}></i><span>*6102</span>
-                </div>
-                <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: '30px', maxWidth: '80px', objectFit: 'contain' }} />
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>6 חוצה צפון</div>
+            </a>
+
+            {/* מנהרות הכרמל */}
+            <a href="https://www.carmeltunnels.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="/carmel_tunnels_logo.png" alt="מנהרות הכרמל" style={{ height: '60px', objectFit: 'contain' }} />
               </div>
-            </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>מנהרות הכרמל</div>
+            </a>
+
+            {/* הנתיב המהיר */}
+            <a href="https://fastlane.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="/the_fast_lane_logo.png" alt="הנתיב המהיר" style={{ height: '40px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>הנתיב המהיר</div>
+            </a>
 
           </div>
+
+          {/* Phishing stripe - mobile */}
+          <div style={{ margin: '0 16px 24px', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 60%, #0052cc 100%)', display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', direction: 'ltr' }}>
+            {/* Left: message photo */}
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <img src="/message_cut.png" alt="הודעת פישינג" style={{ height: '130px', display: 'block', borderRadius: '8px 8px 0 0' }} />
+              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '8px', left: '8px', height: '60px', transform: 'rotate(-15deg)' }} />
+            </div>
+            {/* Center: text */}
+            <div style={{ flex: 1, padding: '16px 10px', fontFamily: 'FbPractica, Arial, sans-serif', color: 'white', fontSize: '1.3rem', fontWeight: '900', lineHeight: '1.2', direction: 'rtl', textAlign: 'right' }}>
+              קיבלתם הודעה כזאת?<br />
+              <span style={{ fontSize: '1.6rem', lineHeight: '1.1', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>זה כנראה פישינג</span>
+            </div>
+            {/* Right: warning icon */}
+            <div style={{ flexShrink: 0, padding: '16px 12px', display: 'flex', alignItems: 'center' }}>
+              <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg" style={{ height: '80px', width: 'auto' }}>
+                <polygon points="50,8 95,82 5,82" fill="none" stroke="#FFD700" strokeWidth="5" strokeLinejoin="round" />
+                <text x="50" y="72" textAnchor="middle" fill="#FFD700" fontSize="44" fontWeight="900" fontFamily="Arial">!</text>
+              </svg>
+            </div>
+          </div>
+
         </section>
       )}
 
-      {/* ── DESKTOP LAYOUT (UNCHANGED) ── */}
+      {/* ── DESKTOP LAYOUT ── */}
       {!isMobile && <section className="flex-1 w-full flex flex-col lg:flex-row items-stretch relative z-10">
 
         {/* Left Side - Video (Half Screen Desktop) */}
@@ -462,110 +478,117 @@ export default function Home() {
           <div className="m-content-wrapper w-full" style={{ maxWidth: 'clamp(620px, 55vw, 950px)' }}>
             {/* Headline */}
             <div style={{ fontFamily: 'FbPractica, Arial, sans-serif', marginBottom: '24px', textAlign: 'right' }}>
-              <p className="mb-2 font-normal" style={{ color: '#00103a', fontSize: 'clamp(1rem, 1.6vw, 1.5rem)', marginTop: '40px' }}>
-                נוסעים בכביש 6?
+              <p className="mb-2" style={{ color: '#00103a', fontSize: 'clamp(1.2rem, 1.8vw, 1.75rem)', fontWeight: '700', marginTop: '40px' }}>
+                קיבלתם הודעה על חוב בכביש אגרה?
               </p>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', justifyContent: 'flex-start', gap: '10px', marginTop: '-10px' }}>
-                <span style={{
-                  fontSize: 'clamp(2.2rem, 3.5vw, 4.2rem)',
-                  fontWeight: '900',
-                  lineHeight: '1.1',
-                  background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>עושים סדר</span>
+              <div style={{ position: 'relative', display: 'inline-block', marginTop: '-10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', justifyContent: 'flex-start', gap: '10px' }}>
                 <span style={{
                   fontSize: 'clamp(2.2rem, 3.5vw, 4.2rem)',
                   fontWeight: '900',
                   lineHeight: '1.1',
                   color: '#00103a',
-                  position: 'relative',
-                  display: 'inline-block',
-                }}>
-                  בחיובים
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '-6px',
-                    left: 0,
-                    right: 0,
-                    height: '4px',
-                    background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
-                    borderRadius: '5px',
-                  }} />
-                </span>
+                }}>רגע, אולי זה</span>
+                <span style={{
+                    fontSize: 'clamp(2.2rem, 3.5vw, 4.2rem)',
+                    fontWeight: '900',
+                    lineHeight: '1.1',
+                    color: '#f37121',
+                  }}>פישינג!</span>
+              </div>
+              <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
               </div>
             </div>
             {/* Info Section - All plain text */}
-            <div style={{ width: '100%', marginBottom: '18px', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: 'clamp(0.92rem, 1.15vw, 1.25rem)', color: '#374151', textAlign: 'right', lineHeight: '1.6' }}>
-              אנו בחוצה ישראל - הרשות הממונה על זכייני כביש 6 - פועלים שחוויית הנסיעה, האיכות והשירות עבור משתמשי הדרך יעמדו בסטנדרט הגבוה שעליו אנו מקפידים תמיד, ולכן חשוב לנו לעשות לכם סדר: איך משלמים, למי ואפילו איך תחסכו כסף?
+            <div style={{ width: '100%', marginBottom: '10px', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: 'clamp(0.92rem, 1.15vw, 1.25rem)', color: '#374151', textAlign: 'right', lineHeight: '1.6' }}>
+              <strong>מה זה פישינג?</strong>
               <br />
-              כביש 6 מחולק למספר קטעים המנוהלים על ידי שני זכיינים שונים, כאשר הנסיעה בהם כרוכה בתשלום אגרה.
+              פישינג הוא למעשה ניסיון הונאה שבו גורמים עוינים מתחזים לגוף מוכר במטרה לגנוב פרטים אישיים ו/או לבצע פעולה זדונית.
               <br />
-              חברת &quot;<a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer" style={{ color: '#006aff', fontWeight: '700', textDecoration: 'underline' }}>דרך ארץ</a>&quot; (הקטע המרכזי): ממחלף שורק ועד מחלף עין תות.
+              כך לדוגמא, גורמים המתחזים למפעילי כבישי אגרה מבצעים פניות באופן יזום באמצעים שונים כגון הודעות SMS ודוא&quot;ל הדורשות מהנמען לשלם חוב או למסור פרטים אישיים.
               <br />
-              חברת &quot;<a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer" style={{ color: '#2e6373', fontWeight: '700', textDecoration: 'underline' }}>6 חוצה צפון</a>&quot; (הקטעים הצפוניים): ממחלף יוקנעם ועד מחלף סומך.
+              <strong>הטיפ שלנו:</strong>
               <br />
-              במידה וביצעתם נסיעה לאורך שני הקטעים, תשלום האגרה מתבצע מול כל זכיין בנפרד.
+              הימנעו מלחיצה על קישורים חשודים או ממסירת פרטים בעקבות מסרונים, הודעות דוא&quot;ל או שיחות טלפוניות<br />שאינכם בטוחים במקורם.
               <br />
-              <strong>הטיפ שלנו:</strong> לשם היעילות וכן להוזלת אגרת הנסיעה, אנו ממליצים להסדיר מראש מנוי (ללא עלות) אצל כל אחד מהזכיינים.
+              במקרה של ספק, מומלץ לאמת את תוכן הפניה ישירות מול מפעיל הכביש הרלוונטי.
               <br />
-              אפשרות נוספת הינה היעזרות בשירותי אפליקציות תשלום שבאמצעותן ניתן להרשם לכלל כבישי האגרה - כיום מציעים הזכיינים אפשרות לתשלום באפליקציות <strong>פנגו וסלופארק</strong>.
+              לנוחיותכם, מצורפים להלן קישורים לאתרים הרשמיים של מפעילי כבישי האגרה:
             </div>
 
-            <p className="text-center mb-3" style={{ fontFamily: 'FbPractica, Arial, sans-serif', color: '#374151', fontSize: 'clamp(0.95rem, 1.2vw, 1.25rem)', fontWeight: '600', marginTop: '16px' }}>
-              <i className="fas fa-angle-double-down" style={{ color: '#00103a', marginLeft: '6px' }}></i>לחצו על הזכיין מטה לרישום מהיר וחינמי:<i className="fas fa-angle-double-down" style={{ color: '#00103a', marginRight: '6px' }}></i>
-            </p>
 
-            {/* Cards */}
-            <div className="m-cards-row" style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', direction: 'ltr', alignItems: 'stretch' }}>
+            {/* Buttons */}
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '12px', width: '100%', direction: 'rtl', flexWrap: 'wrap' }}>
 
-              {/* Card 1 - חוצה צפון 6 */}
-              <div className="m-card-wrapper" style={{ display: 'flex', flex: 1, alignItems: 'stretch' }}>
-                <div className="m-card-box"
-                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', minHeight: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
-                >
-                  {/* Map */}
-                  <div ref={map1Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer', backgroundColor: '#ffffff', minHeight: '100%' }}>
-                    <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_6_HOTZE.jpg)', backgroundSize: 'cover', backgroundPosition: 'calc(50% + 40px) calc(50% - 60px)', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
-                  </div>
-                  {/* Content */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-evenly', padding: 'clamp(10px, 1.2vw, 16px) clamp(12px, 3vw, 48px) clamp(10px, 1.2vw, 16px) clamp(8px, 1vw, 20px)', fontFamily: 'FbPractica, Arial, sans-serif', gap: 'clamp(3px, 0.5vw, 6px)', textAlign: 'right' }}>
-                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(11px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block' }}>קטעים צפוניים</div>
-                    <div style={{ fontSize: 'clamp(16px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '6px' }}><span>חוצה צפון</span><span>6</span></div>
-                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a' }}>יוקנעם ↔ סומך</div>
-                    <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#2e6373', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
-                      <i className="fas fa-phone" style={{ fontSize: 'clamp(9px, 0.8vw, 11px)' }}></i><span>*6102</span>
-                    </div>
-                    <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="לוגו חוצה צפון 6" style={{ maxHeight: 'clamp(28px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain' }} />
-                  </div>
+              {/* דרך ארץ */}
+              <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer"
+                style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+              >
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 12px' }}>
+                  <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="דרך ארץ" style={{ height: '44px', objectFit: 'contain' }} />
+                </div>
+                <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: 'clamp(12px, 1.1vw, 15px)' }}>דרך ארץ (כביש 6)</div>
+              </a>
+
+              {/* חוצה צפון 6 */}
+              <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer"
+                style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+              >
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '18px 12px' }}>
+                  <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="חוצה צפון 6" style={{ height: '44px', objectFit: 'contain' }} />
+                </div>
+                <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: 'clamp(12px, 1.1vw, 15px)' }}>6 חוצה צפון</div>
+              </a>
+
+              {/* מנהרות הכרמל */}
+              <a href="https://www.carmeltunnels.co.il/" target="_blank" rel="noopener noreferrer"
+                style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+              >
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 12px' }}>
+                  <img src="/carmel_tunnels_logo.png" alt="מנהרות הכרמל" style={{ height: '44px', objectFit: 'contain' }} />
+                </div>
+                <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: 'clamp(12px, 1.1vw, 15px)' }}>מנהרות הכרמל</div>
+              </a>
+
+              {/* הנתיב המהיר */}
+              <a href="https://fastlane.co.il/" target="_blank" rel="noopener noreferrer"
+                style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+              >
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '18px 12px' }}>
+                  <img src="/the_fast_lane_logo.png" alt="הנתיב המהיר" style={{ height: '40px', objectFit: 'contain' }} />
+                </div>
+                <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: 'clamp(12px, 1.1vw, 15px)' }}>הנתיב המהיר</div>
+              </a>
+
+            </div>
+
+            {/* Phishing stripe */}
+            <div style={{
+              width: '100%', marginTop: '20px', borderRadius: '16px',
+              background: 'linear-gradient(90deg, #000a1a 0%, #000a1a 65%, #002d7a 100%)',
+              display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', direction: 'ltr',
+              minHeight: '100px'
+            }}>
+              {/* Left+Center group: pushed right */}
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <div style={{ position: 'relative', flexShrink: 0, alignSelf: 'flex-end', paddingLeft: '20px' }}>
+                  <img src="/message_cut.png" alt="הודעת פישינג" style={{ height: 'clamp(110px, 13vw, 180px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-18px', left: '-20px', height: 'clamp(55px, 6.5vw, 90px)', transform: 'rotate(-15deg)' }} />
+                </div>
+                {/* Text */}
+                <div style={{ padding: '20px 0px 20px 24px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '900', direction: 'rtl', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ color: 'white', fontSize: 'clamp(1.2rem, 2vw, 2.2rem)', lineHeight: '1.3', whiteSpace: 'nowrap' }}>קיבלתם הודעה כזאת?</div>
+                  <div style={{ fontSize: 'clamp(1.72rem, 2.83vw, 3.18rem)', lineHeight: '1.2', whiteSpace: 'nowrap', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>זה כנראה פישינג</div>
                 </div>
               </div>
-
-              {/* Card 2 - דרך ארץ */}
-              <div className="m-card-wrapper" style={{ display: 'flex', flex: 1, alignItems: 'stretch' }}>
-                <div className="m-card-box"
-                  style={{ display: 'flex', flexDirection: 'row', borderRadius: '16px', overflow: 'hidden', background: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', minHeight: 'clamp(180px, 20vw, 360px)', width: '100%', direction: 'ltr' }}
-                >
-                  {/* Map */}
-                  <div ref={map2Ref} style={{ width: '48%', flexShrink: 0, overflow: 'hidden', position: 'relative', cursor: 'pointer', minHeight: '100%' }}>
-                    <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://storage.googleapis.com/hotze_landing_page/MAP_DERECH_ERETZ.jpg)', backgroundSize: '160%', backgroundPosition: 'calc(50% + 60px) calc(42% + 7px)', backgroundRepeat: 'no-repeat', backgroundColor: '#ffffff' }} />
-                  </div>
-                  {/* Content */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-evenly', padding: 'clamp(10px, 1.2vw, 16px) clamp(12px, 3vw, 48px) clamp(10px, 1.2vw, 16px) clamp(8px, 1vw, 20px)', fontFamily: 'FbPractica, Arial, sans-serif', gap: 'clamp(3px, 0.5vw, 6px)', textAlign: 'right' }}>
-                    <div style={{ background: '#E8F2FF', color: '#00103a', borderRadius: '20px', padding: '3px 12px', fontSize: 'clamp(11px, 1.1vw, 15px)', fontWeight: '500', display: 'inline-block' }}>קטע מרכזי</div>
-                    <div style={{ fontSize: 'clamp(16px, 2.5vw, 36px)', fontWeight: '900', color: '#00103a', lineHeight: '1.1' }}>דרך ארץ</div>
-                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a' }}>שורק ↔ עין תות</div>
-                    <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer" style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#006aff', textDecoration: 'underline', fontWeight: '500', display: 'block' }}>לרישום כמנוי באתר הזכיין</a>
-                    <div style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', color: '#00103a', display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'flex-start' }}>
-                      <i className="fas fa-phone" style={{ fontSize: 'clamp(9px, 0.8vw, 11px)' }}></i><span>*6116</span>
-                    </div>
-                    <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="לוגו דרך ארץ" style={{ maxHeight: 'clamp(28px, 3.5vw, 55px)', maxWidth: '85px', objectFit: 'contain' }} />
-                  </div>
-                </div>
-              </div>
-
             </div>
 
           </div>
@@ -573,5 +596,15 @@ export default function Home() {
       </section>}
 
     </main>
+      {/* Footer stripe */}
+      <div style={{
+        width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)',
+        padding: '16px 32px', textAlign: 'center', direction: 'rtl',
+        fontFamily: 'FbPractica, Arial, sans-serif', fontSize: 'clamp(14px, 1.4vw, 18px)',
+        color: 'rgba(255,255,255,0.75)', lineHeight: '1.6',
+      }}>
+        חברת חוצה ישראל, הרשות הממונה על זכייני כבישי האגרה, מפרסמת מידע זה כשירות לציבור במטרה להגביר את המודעות לסיכוני התחזות ולצמצם את הסיכון למסירת מידע אישי או פרטי תשלום לגורמים מתחזים.
+      </div>
+    </div>
   );
 }
