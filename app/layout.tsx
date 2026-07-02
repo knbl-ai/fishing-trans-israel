@@ -16,9 +16,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "חוצה ישראל",
   description: "כביש 6 - מידע על זכיינים ותשלום אגרה",
-  icons: {
-    icon: "https://storage.googleapis.com/hotze_landing_page/trans_israel_icon.png",
-  },
 };
 
 export default function RootLayout({
@@ -34,7 +31,6 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-TQTQSNL4" />
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link rel="icon" href="https://storage.googleapis.com/hotze_landing_page/trans_israel_icon.png" type="image/png" />
       </head>
       <body className="min-h-full flex flex-col">
         {children}
