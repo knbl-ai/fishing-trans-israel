@@ -352,7 +352,7 @@ export default function Home() {
             </div>
             {/* Center: text */}
             <div style={{ flex: 1, padding: '16px 10px', fontFamily: 'FbPractica, Arial, sans-serif', color: 'white', fontSize: '1.3rem', fontWeight: '900', lineHeight: '1.2', direction: 'rtl', textAlign: 'right' }}>
-              קיבלתם הודעה כזאת?<br />
+              קיבלתם הודעה כזאת או הודעה דומה?<br />
               <span style={{ fontSize: '1.6rem', lineHeight: '1.1', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>זה כנראה פישינג</span>
             </div>
             {/* Right: warning icon */}
@@ -582,7 +582,7 @@ export default function Home() {
                 </div>
                 {/* Text */}
                 <div style={{ padding: '20px 0px 20px 24px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '900', direction: 'rtl', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{ color: 'white', fontSize: 'clamp(1.2rem, 2vw, 2.2rem)', lineHeight: '1.3', whiteSpace: 'nowrap' }}>קיבלתם הודעה כזאת?</div>
+                  <div style={{ color: 'white', fontSize: 'clamp(1.2rem, 2vw, 2.2rem)', lineHeight: '1.3', whiteSpace: 'nowrap' }}>קיבלתם הודעה כזאת או הודעה דומה?</div>
                   <div style={{ fontSize: 'clamp(1.72rem, 2.83vw, 3.18rem)', lineHeight: '1.2', whiteSpace: 'nowrap', background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>זה כנראה פישינג</div>
                 </div>
               </div>
