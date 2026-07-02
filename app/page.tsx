@@ -247,7 +247,7 @@ export default function Home() {
             <div style={{ display: 'inline-block', marginTop: '-6px' }}>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', gap: '8px' }}>
                 <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#00103a' }}>רגע, אולי זה</span>
-                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#16a34a',  }}>פישינג!</span>
+                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#f37121',  }}>פישינג!</span>
               </div>
               <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
             </div>
@@ -493,7 +493,7 @@ export default function Home() {
                     fontSize: 'clamp(2.2rem, 3.5vw, 4.2rem)',
                     fontWeight: '900',
                     lineHeight: '1.1',
-                    color: '#16a34a',
+                    color: '#f37121',
                   }}>פישינג!</span>
               </div>
               <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
