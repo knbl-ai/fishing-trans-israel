@@ -348,15 +348,15 @@ export default function Home() {
             {/* Message photos */}
             <div style={{ position: 'relative', flexShrink: 0 }}>
               <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: '38px', transform: 'rotate(-15deg)' }} />
+              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: '54px', transform: 'rotate(-15deg)' }} />
             </div>
             <div style={{ position: 'relative', flexShrink: 0 }}>
               <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: '38px', transform: 'rotate(-15deg)' }} />
+              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: '54px', transform: 'rotate(-15deg)' }} />
             </div>
             <div style={{ position: 'relative', flexShrink: 0 }}>
               <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: '38px', transform: 'rotate(-15deg)' }} />
+              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: '54px', transform: 'rotate(-15deg)' }} />
             </div>
             {/* Warning icon */}
             <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
@@ -578,18 +578,18 @@ export default function Home() {
               minHeight: '100px'
             }}>
               {/* Message photos */}
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 'clamp(16px, 2vw, 28px)', padding: '20px 24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 'clamp(28px, 3.6vw, 44px)', padding: '20px 24px' }}>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: 'clamp(32px, 3.4vw, 48px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: 'clamp(32px, 3.4vw, 48px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-8px', left: '-8px', height: 'clamp(32px, 3.4vw, 48px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-12px', left: '-12px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
               </div>
             </div>
