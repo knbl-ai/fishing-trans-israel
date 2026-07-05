@@ -344,7 +344,7 @@ export default function Home() {
           </div>
 
           {/* Phishing stripe - mobile */}
-          <div style={{ margin: '0 16px 24px', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 60%, #0052cc 100%)', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'center', gap: '10px', padding: '12px', direction: 'ltr' }}>
+          <div style={{ margin: '0 16px 24px', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 60%, #0052cc 100%)', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'center', gap: '10px', padding: '20px 12px 12px', direction: 'ltr' }}>
             {/* Message photos */}
             <div style={{ position: 'relative', flexShrink: 0 }}>
               <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
