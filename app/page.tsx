@@ -581,15 +581,15 @@ export default function Home() {
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 'clamp(16px, 2vw, 28px)', padding: '20px 24px' }}>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-18px', left: '-20px', height: 'clamp(45px, 5vw, 70px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut2.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-18px', left: '-20px', height: 'clamp(45px, 5vw, 70px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
                   <img src="/message_cut3.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-18px', left: '-20px', height: 'clamp(45px, 5vw, 70px)', transform: 'rotate(-15deg)' }} />
+                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
               </div>
             </div>
