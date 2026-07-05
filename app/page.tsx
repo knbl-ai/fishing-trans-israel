@@ -351,11 +351,11 @@ export default function Home() {
               <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '8px', left: '8px', height: '50px', transform: 'rotate(-15deg)' }} />
             </div>
             <div style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/message_cut2.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
+              <img src="/message_cut3.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
               <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '8px', left: '8px', height: '50px', transform: 'rotate(-15deg)' }} />
             </div>
             <div style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/message_cut3.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
+              <img src="/message_cut2.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
               <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '8px', left: '8px', height: '50px', transform: 'rotate(-15deg)' }} />
             </div>
             {/* Warning icon */}
@@ -584,11 +584,11 @@ export default function Home() {
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut2.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/message_cut3.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut3.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/message_cut2.png" alt="הודעת פישינג" style={{ height: 'clamp(90px, 10vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '6px', left: '6px', height: 'clamp(38px, 4.2vw, 60px)', transform: 'rotate(-15deg)' }} />
                 </div>
               </div>
