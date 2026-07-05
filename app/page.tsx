@@ -578,17 +578,17 @@ export default function Home() {
               minHeight: '100px'
             }}>
               {/* Message photos */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 'clamp(34px, 1.8vw, 40px)', padding: '24px 26px 20px 64px' }}>
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 'clamp(38px, 1.8vw, 44px)', padding: '24px 26px 20px 90px' }}>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(66px, 6.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(58px, 5.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-14px', left: '-26px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(66px, 6.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(58px, 5.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-14px', left: '-26px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
                 <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(66px, 6.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
+                  <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(58px, 5.6vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
                   <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-14px', left: '-26px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
                 </div>
               </div>
