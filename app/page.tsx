@@ -477,7 +477,7 @@ export default function Home() {
 
         {/* Right Side - Text Content (Half Screen Desktop) */}
         <div className="m-right-col w-full lg:w-3/5 px-8 lg:px-14 pt-0 pb-8 flex flex-col items-end justify-center relative" dir="rtl" style={{ marginTop: '-60px' }}>
-          <div style={{ position: 'absolute', top: '60px', left: '60px', zIndex: 5 }}>
+          <div style={{ position: 'absolute', top: '91px', left: '60px', zIndex: 5 }}>
             <img
               src="/message_cut3_crop.png"
               alt="הודעת פישינג"
