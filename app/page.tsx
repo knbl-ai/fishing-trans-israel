@@ -306,7 +306,7 @@ export default function Home() {
           <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box', direction: 'rtl' }}>
 
             {/* דרך ארץ */}
-            <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer"
               style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
                 <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="דרך ארץ" style={{ height: '60px', objectFit: 'contain' }} />
@@ -315,7 +315,7 @@ export default function Home() {
             </a>
 
             {/* חוצה צפון 6 */}
-            <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer"
+            <a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer"
               style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
                 <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="חוצה צפון 6" style={{ height: '60px', objectFit: 'contain' }} />
@@ -374,7 +374,7 @@ export default function Home() {
       {!isMobile && <section className="flex-1 w-full flex flex-col lg:flex-row items-stretch relative z-10">
 
         {/* Left Side - Video (Half Screen Desktop) */}
-        <div className="m-video-col w-full lg:w-2/5 px-8 lg:px-14 py-4 lg:py-8 flex items-center justify-center">
+        <div className="m-video-col w-full lg:w-2/5 px-8 lg:px-14 py-4 lg:py-8 flex items-center justify-center relative">
           <div className="m-video-wrapper flex flex-col justify-start" style={{ marginLeft: '75px', marginTop: '-60px', height: '70vh', width: 'calc(70vh * 9 / 16)', flexShrink: 0 }}>
             <div
               className="relative w-full bg-black shadow-lg overflow-hidden flex items-center justify-center group cursor-pointer"
@@ -476,7 +476,21 @@ export default function Home() {
         </div>
 
         {/* Right Side - Text Content (Half Screen Desktop) */}
-        <div className="m-right-col w-full lg:w-3/5 px-8 lg:px-14 pt-0 pb-8 flex flex-col items-end justify-center" dir="rtl" style={{ marginTop: '-60px' }}>
+        <div className="m-right-col w-full lg:w-3/5 px-8 lg:px-14 pt-0 pb-8 flex flex-col items-end justify-center relative" dir="rtl" style={{ marginTop: '-60px' }}>
+          <div style={{ position: 'absolute', top: '60px', left: '60px', zIndex: 5 }}>
+            <img
+              src="/message_cut3_crop.png"
+              alt="הודעת פישינג"
+              className="pointer-events-none"
+              style={{ height: '150px', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.25))', display: 'block' }}
+            />
+            <img
+              src="/fishing_stamp_WITH_WHITE.png"
+              alt="stamp"
+              className="pointer-events-none"
+              style={{ position: 'absolute', top: '-34px', left: '-34px', height: '70px' }}
+            />
+          </div>
           <div className="m-content-wrapper w-full" style={{ maxWidth: 'clamp(620px, 55vw, 950px)' }}>
             {/* Headline */}
             <div style={{ fontFamily: 'FbPractica, Arial, sans-serif', marginBottom: '24px', textAlign: 'right' }}>
@@ -521,7 +535,7 @@ export default function Home() {
             <div style={{ display: 'flex', flexDirection: 'row', gap: '12px', width: '100%', direction: 'rtl', flexWrap: 'wrap' }}>
 
               {/* דרך ארץ */}
-              <a href="https://service.kvish6.co.il/#/website/customer-area/registration?x=1&Button=Strip" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer"
                 style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
@@ -533,7 +547,7 @@ export default function Home() {
               </a>
 
               {/* חוצה צפון 6 */}
-              <a href="https://6cn.co.il/register" target="_blank" rel="noopener noreferrer"
+              <a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer"
                 style={{ flex: '1 1 0', minWidth: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden', transition: 'box-shadow 0.2s, transform 0.2s' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,82,204,0.18)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
@@ -568,30 +582,6 @@ export default function Home() {
                 <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: 'clamp(12px, 1.1vw, 15px)' }}>הנתיב המהיר</div>
               </a>
 
-            </div>
-
-            {/* Phishing stripe */}
-            <div style={{
-              width: '100%', marginTop: '20px', borderRadius: '16px',
-              background: 'linear-gradient(90deg, #000a1a 0%, #000a1a 65%, #002d7a 100%)',
-              display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', direction: 'ltr',
-              minHeight: '100px'
-            }}>
-              {/* Message photos */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 'clamp(70px, 1.8vw, 76px)', padding: '24px 26px 20px 110px' }}>
-                <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(45px, 4.4vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
-                </div>
-                <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(45px, 4.4vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
-                </div>
-                <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: 'clamp(45px, 4.4vw, 140px)', display: 'block', borderRadius: '8px 8px 0 0' }} />
-                  <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: 'clamp(46px, 4.8vw, 68px)', transform: 'rotate(-15deg)' }} />
-                </div>
-              </div>
             </div>
 
           </div>
