@@ -532,7 +532,7 @@ export default function Home() {
 
 
             {/* Buttons */}
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '12px', width: '100%', direction: 'rtl', flexWrap: 'wrap', marginTop: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '12px', width: '100%', direction: 'rtl', flexWrap: 'wrap', marginTop: '48px' }}>
 
               {/* דרך ארץ */}
               <a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer"
