@@ -189,6 +189,10 @@ export default function Home() {
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
 
+    // Ensure autoplay fires even if the browser attribute alone doesn't trigger it
+    video.muted = true;
+    video.play().catch(() => {});
+
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
@@ -272,7 +276,7 @@ export default function Home() {
                 onClick={handleMobileTap}
               >
                 <video ref={videoRef} className="absolute top-0 left-0 w-full h-full object-cover" muted={isMuted} playsInline autoPlay loop>
-                  <source src="https://storage.googleapis.com/fishing_hotze/%D7%A1%D7%A8%D7%98%D7%95%D7%9F%20%D7%A0%D7%91%D7%95%20%D7%A2%D7%93%D7%9B%D7%A0%D7%99%20%D7%9C%D7%9B%D7%A8%D7%92%D7%A2.MP4" type="video/mp4" />
+                  <source src="https://storage.googleapis.com/hotze_landing_page/NEVO_NOT_FINAL_LOW.mp4" type="video/mp4" />
                 </video>
                 {/* Mobile Video Controls */}
                 <div className="absolute bottom-0 w-full px-3 py-2 flex flex-col gap-2 z-10"
@@ -391,7 +395,7 @@ export default function Home() {
                 autoPlay
                 loop
               >
-                <source src="https://storage.googleapis.com/fishing_hotze/%D7%A1%D7%A8%D7%98%D7%95%D7%9F%20%D7%A0%D7%91%D7%95%20%D7%A2%D7%93%D7%9B%D7%A0%D7%99%20%D7%9C%D7%9B%D7%A8%D7%92%D7%A2.MP4" type="video/mp4" />
+                <source src="https://storage.googleapis.com/hotze_landing_page/NEVO_NOT_FINAL_LOW.mp4" type="video/mp4" />
               </video>
 
               {/* Video Control Bar */}
