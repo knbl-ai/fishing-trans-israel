@@ -35,6 +35,34 @@ const arrowAnimation = `
     border: none;
     box-shadow: 0 0 3px rgba(255, 165, 0, 0.6);
   }
+  input[type='range'].seek-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    touch-action: none;
+  }
+  input[type='range'].seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #FFA500;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(255,165,0,0.8);
+  }
+  input[type='range'].seek-bar::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #FFA500;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 4px rgba(255,165,0,0.8);
+  }
 `;
 
 export default function Home() {
@@ -109,6 +137,32 @@ export default function Home() {
       const percentage = (e.clientX - rect.left) / rect.width;
       videoRef.current.currentTime = percentage * duration;
     }
+  };
+
+  // Pointer-event based seek for mobile (uses setPointerCapture for reliable drag)
+  const handleSeekPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    seekToPointer(e);
+    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+  };
+
+  const handleSeekPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.buttons === 0 && e.pointerType === 'mouse') return;
+    e.stopPropagation();
+    seekToPointer(e);
+  };
+
+  const handleSeekPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    controlsTimeoutRef.current = setTimeout(() => setShowControls(false), 3000);
+  };
+
+  const seekToPointer = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!videoRef.current || !duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    videoRef.current.currentTime = pct * duration;
   };
 
   // Handle mute toggle
@@ -212,9 +266,9 @@ export default function Home() {
           </linearGradient>
         </defs>
         {/* Navy triangle */}
-        <path d={isMobile ? 'M 0 0 L 65 0 L 0 78 Z' : 'M 0 0 L 52 0 L 0 72 Z'} fill="#001a4d" />
+        <path d={isMobile ? 'M 0 0 L 100 0 L 0 6 Z' : 'M 0 0 L 52 0 L 0 72 Z'} fill="#001a4d" />
         {/* Tapered gold stripe */}
-        <path d={isMobile ? 'M 65 0 L 72 0 L 0 78 Z' : 'M 52 0 L 59 0 L 0 72 Z'} fill="url(#goldGrad)" />
+        <path d={isMobile ? 'M 100 0 L 0 6 L 0 7.5 Z' : 'M 52 0 L 59 0 L 0 72 Z'} fill="url(#goldGrad)" />
       </svg>
       {/* Background image overlay */}
       <img
@@ -246,12 +300,11 @@ export default function Home() {
         <section className="flex-1 w-full flex flex-col relative z-10" dir="rtl">
 
           {/* Headline */}
-          <div style={{ padding: '20px 20px 0', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', marginBottom: '20px' }}>
+          <div style={{ padding: '20px 20px 0', fontFamily: 'FbPractica, Arial, sans-serif', textAlign: 'right', marginBottom: '16px' }}>
             <p style={{ color: '#00103a', fontSize: '1.3rem', marginBottom: '0px' }}>קיבלתם הודעה על חוב בכביש אגרה?</p>
             <div style={{ display: 'inline-block', marginTop: '-6px' }}>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'baseline', gap: '8px' }}>
-                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#00103a' }}>רגע, אולי זה</span>
-                <span style={{ fontSize: '2.8rem', fontWeight: '900', lineHeight: '1.1', color: '#f37121',  }}>פישינג!</span>
+              <div style={{ fontSize: '2.5rem', fontWeight: '900', lineHeight: '1.1' }}>
+                <span style={{ color: '#00103a' }}>רגע, אולי זה </span><span style={{ color: '#f37121' }}>פישינג!</span>
               </div>
               <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
             </div>
@@ -265,6 +318,16 @@ export default function Home() {
             <strong>הטיפ שלנו:</strong><br />
             הימנעו מלחיצה על קישורים חשודים או ממסירת פרטים בעקבות מסרונים, דוא&quot;ל או שיחות טלפון שאינכם בטוחים במקורם.<br />במקרה של ספק, מומלץ לאמת את תוכן הפניה ישירות מול מפעיל הכביש הרלוונטי.<br />
             לנוחותכם, מצורפים קישורים לאתרים הרשמיים של מפעילי כבישי האגרה:
+          </div>
+
+          {/* Phishing message image with stamp */}
+          <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20px 28px' }}>
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+              <img src="/message_cut3_crop.png" alt="הודעת פישינג" className="pointer-events-none"
+                style={{ height: '140px', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.25))', display: 'block' }} />
+              <img src="/fishing_stamp_WITH_WHITE.png" alt="stamp" className="pointer-events-none"
+                style={{ position: 'absolute', top: '-28px', left: '-28px', height: '62px' }} />
+            </div>
           </div>
 
           {/* Video */}
@@ -286,8 +349,22 @@ export default function Home() {
                     visibility: showControls ? 'visible' : 'hidden',
                     transition: 'opacity 0.3s, visibility 0.3s'
                   }}>
-                  <div className="w-full h-1 bg-gray-700 rounded cursor-pointer" onClick={(e) => { e.stopPropagation(); handleProgressClick(e as any); }}>
-                    <div className="h-full rounded" style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%`, background: 'linear-gradient(to right, #FFD700, #FFA500)' }} />
+                  <div
+                    style={{ width: '100%', height: '24px', display: 'flex', alignItems: 'center', touchAction: 'none', cursor: 'pointer' }}
+                    onPointerDown={handleSeekPointerDown}
+                    onPointerMove={handleSeekPointerMove}
+                    onPointerUp={handleSeekPointerUp}
+                  >
+                    <div style={{ width: '100%', height: '4px', background: '#4B5563', borderRadius: '2px', position: 'relative' }}>
+                      <div style={{ height: '100%', borderRadius: '2px', background: 'linear-gradient(to right, #FFD700, #FFA500)', width: `${duration ? (currentTime / duration) * 100 : 0}%` }} />
+                      <div style={{
+                        position: 'absolute', top: '50%', left: `${duration ? (currentTime / duration) * 100 : 0}%`,
+                        transform: 'translate(-50%, -50%)',
+                        width: '14px', height: '14px', borderRadius: '50%',
+                        background: '#FFA500', boxShadow: '0 0 4px rgba(255,165,0,0.8)',
+                        pointerEvents: 'none',
+                      }} />
+                    </div>
                   </div>
                   <div className="flex items-center justify-between text-white text-sm">
                     <div className="flex items-center gap-3">
@@ -347,29 +424,6 @@ export default function Home() {
 
           </div>
 
-          {/* Phishing stripe - mobile */}
-          <div style={{ margin: '0 16px 24px', borderRadius: '16px', overflow: 'hidden', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 60%, #0052cc 100%)', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'center', gap: '10px', padding: '32px 24px 12px 70px', direction: 'ltr' }}>
-            {/* Message photos */}
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/message_cut_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: '54px', transform: 'rotate(-15deg)' }} />
-            </div>
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/message_cut3_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: '54px', transform: 'rotate(-15deg)' }} />
-            </div>
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/message_cut2_crop.png" alt="הודעת פישינג" style={{ height: '110px', display: 'block', borderRadius: '8px 8px 0 0' }} />
-              <img src="/fishing_stamp_WITH_WHITE.png" alt="חותמת פישינג" style={{ position: 'absolute', top: '-19px', left: '-53px', height: '54px', transform: 'rotate(-15deg)' }} />
-            </div>
-            {/* Warning icon */}
-            <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
-              <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg" style={{ height: '70px', width: 'auto' }}>
-                <polygon points="50,8 95,82 5,82" fill="none" stroke="#FFD700" strokeWidth="5" strokeLinejoin="round" />
-                <text x="50" y="72" textAnchor="middle" fill="#FFD700" fontSize="44" fontWeight="900" fontFamily="Arial">!</text>
-              </svg>
-            </div>
-          </div>
 
         </section>
       )}
@@ -411,15 +465,17 @@ export default function Home() {
                 onMouseLeave={handleVideoMouseLeave}
               >
                 {/* Progress Bar */}
-                <div
-                  className="w-full h-1 bg-gray-700 rounded cursor-pointer transition-all duration-200 group"
-                  onClick={handleProgressClick}
-                >
-                  <div
-                    className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded transition-all duration-100"
-                    style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                  />
-                </div>
+                <input
+                  type="range"
+                  className="seek-bar"
+                  min={0}
+                  max={duration || 100}
+                  step={0.1}
+                  value={currentTime}
+                  onChange={(e) => { e.stopPropagation(); if (videoRef.current) videoRef.current.currentTime = parseFloat(e.target.value); }}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ background: `linear-gradient(to right, #FFD700 0%, #FFA500 ${duration ? (currentTime / duration) * 100 : 0}%, #4B5563 ${duration ? (currentTime / duration) * 100 : 0}%, #4B5563 100%)` }}
+                />
 
                 {/* Controls */}
                 <div className="flex items-center justify-between text-white text-sm">
@@ -481,20 +537,6 @@ export default function Home() {
 
         {/* Right Side - Text Content (Half Screen Desktop) */}
         <div className="m-right-col w-full lg:w-3/5 px-8 lg:px-14 pt-0 pb-8 flex flex-col items-end justify-center relative" dir="rtl" style={{ marginTop: '-60px' }}>
-          <div style={{ position: 'absolute', top: '91px', left: '60px', zIndex: 5 }}>
-            <img
-              src="/message_cut3_crop.png"
-              alt="הודעת פישינג"
-              className="pointer-events-none"
-              style={{ height: '150px', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.25))', display: 'block' }}
-            />
-            <img
-              src="/fishing_stamp_WITH_WHITE.png"
-              alt="stamp"
-              className="pointer-events-none"
-              style={{ position: 'absolute', top: '-34px', left: '-34px', height: '70px' }}
-            />
-          </div>
           <div className="m-content-wrapper w-full" style={{ maxWidth: 'clamp(620px, 55vw, 950px)' }}>
             {/* Headline */}
             <div style={{ fontFamily: 'FbPractica, Arial, sans-serif', marginBottom: '24px', textAlign: 'right' }}>
@@ -508,19 +550,28 @@ export default function Home() {
                   fontWeight: '900',
                   lineHeight: '1.1',
                   color: '#00103a',
+                  wordSpacing: '0.08em',
                 }}>רגע, אולי זה</span>
                 <span style={{
                     fontSize: 'clamp(2.2rem, 3.5vw, 4.2rem)',
                     fontWeight: '900',
                     lineHeight: '1.1',
                     color: '#f37121',
+                    marginRight: 'calc(0.3em - 3px)',
                   }}>פישינג!</span>
               </div>
               <div style={{ height: '3px', background: '#001a4d', borderRadius: '2px', marginTop: '6px', opacity: 0.9 }} />
               </div>
             </div>
             {/* Info Section - All plain text */}
-            <div style={{ width: '100%', marginBottom: '10px', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: 'clamp(0.92rem, 1.15vw, 1.25rem)', color: '#374151', textAlign: 'right', lineHeight: '1.6' }}>
+            <div style={{ width: '100%', marginBottom: '10px', fontFamily: 'FbPractica, Arial, sans-serif', fontSize: 'clamp(0.92rem, 1.15vw, 1.25rem)', color: '#374151', textAlign: 'right', lineHeight: '1.6', display: 'flow-root' }}>
+              {/* Phishing image — float:left so text always wraps to its right, impossible to overlap */}
+              <div style={{ float: 'left', position: 'relative', marginRight: '20px', marginBottom: '8px', paddingTop: '34px', paddingLeft: '34px' }}>
+                <img src="/message_cut3_crop.png" alt="הודעת פישינג" className="pointer-events-none"
+                  style={{ height: '120px', filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.25))', display: 'block' }} />
+                <img src="/fishing_stamp_WITH_WHITE.png" alt="stamp" className="pointer-events-none"
+                  style={{ position: 'absolute', top: '0', left: '0', height: '60px' }} />
+              </div>
               <strong>מה זה פישינג?</strong>
               <br />
               פישינג הוא ניסיון הונאה שבו גורמים עוינים מתחזים לגוף מוכר במטרה לגנוב פרטים אישיים או לבצע פעולה זדונית.

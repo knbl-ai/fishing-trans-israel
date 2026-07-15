@@ -7,6 +7,12 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "l2-design-system",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "C:/Users/user/Documents/CODE_PROJECTS/lodcation_new"],
+      "port": 8765
     }
   ]
 }
