@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <GoogleTagManager gtmId="GTM-TQTQSNL4" />
+      <GoogleTagManager gtmId="GTM-N4NWJ6SL" />
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
