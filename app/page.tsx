@@ -320,6 +320,47 @@ export default function Home() {
             לנוחותכם, מצורפים קישורים לאתרים הרשמיים של מפעילי כבישי האגרה:
           </div>
 
+          {/* Cards - exact desktop card design, stacked vertically */}
+          <div style={{ padding: '0 16px 48px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box', direction: 'rtl' }}>
+
+            {/* דרך ארץ */}
+            <a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="דרך ארץ" style={{ height: '60px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>דרך ארץ (כביש 6)</div>
+            </a>
+
+            {/* חוצה צפון 6 */}
+            <a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="חוצה צפון 6" style={{ height: '60px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>6 חוצה צפון</div>
+            </a>
+
+            {/* מנהרות הכרמל */}
+            <a href="https://www.carmeltunnels.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="/carmel_tunnels_logo.png" alt="מנהרות הכרמל" style={{ height: '60px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>מנהרות הכרמל</div>
+            </a>
+
+            {/* הנתיב המהיר */}
+            <a href="https://fastlane.co.il/" target="_blank" rel="noopener noreferrer"
+              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
+                <img src="/the_fast_lane_logo.png" alt="הנתיב המהיר" style={{ height: '40px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>הנתיב המהיר</div>
+            </a>
+
+          </div>
+
           {/* Phishing message image with stamp */}
           <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20px 28px' }}>
             <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -380,48 +421,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-
-
-          {/* Cards - exact desktop card design, stacked vertically */}
-          <div style={{ padding: '0 16px 24px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box', direction: 'rtl' }}>
-
-            {/* דרך ארץ */}
-            <a href="https://www.kvish6.co.il/" target="_blank" rel="noopener noreferrer"
-              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
-                <img src="https://storage.googleapis.com/hotze_landing_page/Derech-Eretz-Logo.png" alt="דרך ארץ" style={{ height: '60px', objectFit: 'contain' }} />
-              </div>
-              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>דרך ארץ (כביש 6)</div>
-            </a>
-
-            {/* חוצה צפון 6 */}
-            <a href="https://6cn.co.il/" target="_blank" rel="noopener noreferrer"
-              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
-                <img src="https://storage.googleapis.com/hotze_landing_page/LogoHozteZafon6.png" alt="חוצה צפון 6" style={{ height: '60px', objectFit: 'contain' }} />
-              </div>
-              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>6 חוצה צפון</div>
-            </a>
-
-            {/* מנהרות הכרמל */}
-            <a href="https://www.carmeltunnels.co.il/" target="_blank" rel="noopener noreferrer"
-              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
-                <img src="/carmel_tunnels_logo.png" alt="מנהרות הכרמל" style={{ height: '60px', objectFit: 'contain' }} />
-              </div>
-              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>מנהרות הכרמל</div>
-            </a>
-
-            {/* הנתיב המהיר */}
-            <a href="https://fastlane.co.il/" target="_blank" rel="noopener noreferrer"
-              style={{ flex: '1 1 calc(50% - 6px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', background: 'white', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.10)', textDecoration: 'none', overflow: 'hidden' }}>
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px 12px' }}>
-                <img src="/the_fast_lane_logo.png" alt="הנתיב המהיר" style={{ height: '40px', objectFit: 'contain' }} />
-              </div>
-              <div style={{ width: '100%', background: 'linear-gradient(135deg, #000a1a 0%, #001a4d 100%)', color: 'white', textAlign: 'center', padding: '8px 12px', fontFamily: 'FbPractica, Arial, sans-serif', fontWeight: '700', fontSize: '13px' }}>הנתיב המהיר</div>
-            </a>
-
           </div>
 
 
